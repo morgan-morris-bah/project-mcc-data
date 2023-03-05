@@ -1,21 +1,6 @@
-pipeline {
-  agent {
-    node {
-      label 'my-defined-label'
-      customWorkspace '/.jenkins/workspace/IronMaven-Data-Pipeline'
-    }
-  }
-  stages {
-    stage('Example Build') {
-      steps {
-        sh 'mvn -B clean verify'
-      }
-    }
-  }
-}
 node {
     stage ("Checkout DataService"){
-        git branch: 'main', url: 'https://github.com/morgan-morris-bah/iron-maven.git'
+        git branch: 'main', url: 'https://github.com/morgan-morris-bah/project-mcc-data.git'
     }
     
     stage ("Gradle Build - DataService") {
